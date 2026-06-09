@@ -33,12 +33,35 @@
             display: flex;
             flex-direction: column;
         }
-        .app-header { background-color: #ffffff; padding: 14px 20px 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .app-header { background-color: #ffffff; padding: 14px 20px 8px 20px; display: flex; justify-content: space-between; align-items: center; }
         .app-header h1 { font-size: 18px; font-weight: 700; color: var(--toss-black); }
         .icon-btn { font-size: 15px; cursor: pointer; color: var(--toss-blue); font-weight: 600; }
-        .module-tabs { display:flex; gap:8px; padding:0 20px 10px; background:#fff; border-bottom:1px solid #EEF2F7; }
-        .module-tab-btn { border:none; background:#F1F5FA; color:#8C9BB3; border-radius:999px; padding:7px 13px; font-size:12px; font-weight:700; cursor:pointer; }
-        .module-tab-btn.active { background:#30496F; color:#fff; }
+        .module-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin: 0 20px 12px;
+            padding: 6px;
+            background: #EEF3F9;
+            border: 1px solid #DEE7F2;
+            border-radius: 14px;
+        }
+        .module-tab-btn {
+            border: none;
+            background: transparent;
+            color: #7B8BA5;
+            border-radius: 10px;
+            padding: 9px 10px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .module-tab-btn.active {
+            background: #FFFFFF;
+            color: #1F2E4D;
+            box-shadow: 0 2px 8px rgba(31, 46, 77, 0.08);
+        }
         
         .app-content { flex: 1; overflow-y: auto; padding: 0 20px 90px 20px; }
         .tab-panel { display: none; }
@@ -62,19 +85,126 @@
             border-radius: 4px;
             background: var(--toss-blue);
         }
-        .summary-grid { display: grid; gap: 8px; }
-        .summary-item {
-            border-radius: 12px;
-            padding: 10px 12px;
-            font-size: 12px;
-            line-height: 1.5;
-            border: 1px solid #E5E8EB;
-            background: #fff;
+        .summary-grid { display: grid; gap: 10px; }
+        .premium-metric-card {
+            background: #FFFFFF;
+            border: 1px solid #E3ECF6;
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(31, 46, 77, 0.04);
         }
-        .summary-item strong { font-weight: 800; }
-        .summary-good { background: #ECFDF3; border-color: #86EFAC; color: #166534; }
-        .summary-warn { background: #FFF7ED; border-color: #FDBA74; color: #9A3412; }
-        .summary-action { background: #EFF6FF; border-color: #93C5FD; color: #1D4ED8; }
+        .premium-metric-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .premium-metric-name {
+            font-size: 12px;
+            font-weight: 800;
+            color: #1F2E4D;
+        }
+        .premium-delta-badge {
+            border-radius: 999px;
+            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+        .premium-delta-up-good { background: #E8F7EF; color: #0F766E; }
+        .premium-delta-up-warn { background: #FFF4E5; color: #B45309; }
+        .premium-delta-down { background: #EEF4FF; color: #1D4ED8; }
+        .premium-values {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .premium-val-box {
+            background: #F7FAFF;
+            border: 1px solid #E5EDF7;
+            border-radius: 10px;
+            padding: 8px 6px;
+            text-align: center;
+        }
+        .premium-val-label {
+            display: block;
+            font-size: 10px;
+            color: #8A98AD;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .premium-val-num {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            color: #1F2E4D;
+        }
+        .premium-arrow {
+            font-size: 13px;
+            color: #8CA0BD;
+            font-weight: 900;
+        }
+        .premium-metric-note {
+            font-size: 11px;
+            line-height: 1.45;
+            color: #51627F;
+            background: #F8FBFF;
+            border: 1px solid #E4EDF8;
+            border-radius: 10px;
+            padding: 7px 8px;
+        }
+        .premium-compare-card { position: relative; overflow: hidden; }
+        .premium-compare-subtitle { font-size: 11px; color: var(--toss-sub-grey); margin-bottom: 10px; }
+        .premium-summary-content { transition: filter 0.2s ease, opacity 0.2s ease; }
+        .premium-compare-card.locked .premium-summary-content { filter: blur(2px); opacity: 0.4; pointer-events: none; user-select: none; }
+        .premium-lock-btn {
+            border: 1px solid #CBD5E1;
+            background: #ffffff;
+            color: #334155;
+            border-radius: 999px;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .premium-lock-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(148, 163, 184, 0.28);
+            backdrop-filter: blur(2px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding: 12px;
+        }
+        .premium-compare-card.locked .premium-lock-overlay { display: flex; }
+        .premium-lock-panel {
+            background: rgba(15, 23, 42, 0.84);
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 12px 14px;
+            text-align: center;
+            width: 100%;
+            max-width: 280px;
+        }
+        .premium-lock-panel .desc { font-size: 11px; line-height: 1.5; opacity: 0.95; margin-bottom: 8px; }
+        .premium-open-btn {
+            border: none;
+            background: #E2E8F0;
+            color: #0F172A;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
 
         .reward-clickable-banner {
             background: linear-gradient(135deg, #E6F4EA 0%, #F2F9F5 100%);
@@ -98,6 +228,25 @@
         .zoom-btn { background: var(--toss-light-grey); border: none; width: 28px; height: 28px; border-radius: 8px; font-size: 15px; font-weight: 700; color: var(--toss-black); cursor: pointer; }
         
         .graph-scroll-container { width: 100%; overflow-x: auto; margin-top: 6px; border-radius: 14px; background-color: var(--toss-light-grey); scroll-behavior: smooth; }
+        .graph-shell { position: relative; }
+        .graph-meta-row {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .graph-meta-row .graph-data-labels {
+            margin-bottom: 0;
+            flex: 1;
+        }
+        .graph-meta-row .zoom-btn-group {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 4px;
+            flex-shrink: 0;
+        }
         .graph-view-area { width: 480px; height: 180px; position: relative; transition: width 0.3s ease; }
         .graph-svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
         .graph-data-labels { display: flex; gap: 8px; flex-wrap: wrap; font-size: 11px; margin-bottom: 12px; color: var(--toss-grey); }
@@ -195,6 +344,28 @@
 
         .point-history-list { max-height: 170px; overflow-y: auto; background: var(--toss-light-grey); padding: 12px; border-radius: 14px; margin-top: 10px; font-size: 11px; }
         .point-history-item { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed #D1D5DB; color: #4E5968; }
+        .guide-block { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:12px; margin-bottom:10px; }
+        .guide-block-title { font-size:12px; font-weight:800; color:#334155; margin-bottom:8px; }
+        .today-side-preview { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:10px 12px; margin-bottom:10px; }
+        .side-effect-chip-wrap { display:flex; flex-wrap:wrap; gap:6px; }
+        .side-effect-chip {
+            display:inline-flex;
+            align-items:center;
+            gap:4px;
+            padding:5px 9px;
+            border-radius:999px;
+            border:1px solid #C7D2FE;
+            background:#EEF2FF;
+            color:#3730A3;
+            font-size:12px;
+            font-weight:700;
+            line-height:1;
+        }
+        .side-effect-chip.empty {
+            border-color:#CBD5E1;
+            background:#F1F5F9;
+            color:#64748B;
+        }
 
         .tag-pool { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px 0; }
         .tag-item { background: var(--toss-light-grey); padding: 6px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; color: #4E5968; font-weight: 500; }
@@ -213,6 +384,9 @@
         .share-channel-btn { display: flex; flex-direction: column; align-items: center; min-width: 68px; border: none; background: none; cursor: pointer; }
         .share-icon-circle { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; margin-bottom: 8px; font-weight: bold; }
         .share-channel-btn span { font-size: 11px; color: var(--toss-grey); font-weight: 500; text-align: center; }
+        .share-preview-box { margin-top: 10px; border: 1px solid #E5E8EB; border-radius: 14px; background: #F8FAFC; padding: 8px; }
+        .share-preview-box .label { font-size: 11px; color: var(--toss-grey); font-weight: 700; margin-bottom: 6px; }
+        .share-preview-img { width: 100%; height: 220px; object-fit: contain; border-radius: 10px; background: #ffffff; display: block; }
         .cafe-picker-list { display: grid; gap: 8px; margin-top: 12px; }
         .cafe-picker-btn {
             width: 100%;
@@ -239,6 +413,89 @@
         .feed-more-wrap { display:flex; justify-content:center; margin-top:12px; }
         .feed-more-btn { border:none; background:#EEF4FF; color:#1D4ED8; font-size:12px; font-weight:700; padding:8px 14px; border-radius:999px; cursor:pointer; }
         .ad-slot { border:1px dashed #CBD5E1; background:#F8FAFC; border-radius:12px; padding:10px; margin-top:8px; }
+        .feature-mask-wrap { position: relative; }
+        .feature-mask {
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: rgba(226, 232, 240, 0.86);
+            border: 1px solid #CBD5E1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            backdrop-filter: blur(1px);
+        }
+        .feature-mask-text {
+            background: rgba(15, 23, 42, 0.78);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .coach-todo-wrap {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 10px;
+        }
+        .coach-todo-grid { display: grid; gap: 8px; }
+        .coach-todo-item {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 10px 10px 10px 12px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px;
+            align-items: start;
+        }
+        .coach-todo-step {
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            background: #30496F;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+        }
+        .coach-todo-text {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        .coach-todo-note {
+            margin-top: 8px;
+            font-size: 11px;
+            color: #64748B;
+            line-height: 1.5;
+        }
+        .coach-todo-priority {
+            margin-top: 10px;
+            background: #EEF4FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 12px;
+            padding: 10px 12px;
+            color: #1E3A8A;
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.5;
+        }
+        .side-guide-list { display: grid; gap: 8px; }
+        .side-guide-item { border: 1px solid #E2E8F0; border-radius: 12px; background: #FFFFFF; padding: 10px; }
+        .side-guide-title { font-size: 12px; font-weight: 800; color: #1F2E4D; margin-bottom: 6px; }
+        .side-guide-row { font-size: 11px; color: #475569; line-height: 1.6; margin-bottom: 4px; }
+        .side-guide-row:last-child { margin-bottom: 0; }
+        .side-guide-chip { display: inline-flex; align-items: center; border-radius: 999px; padding: 2px 7px; margin-right: 6px; font-size: 10px; font-weight: 800; vertical-align: middle; }
+        .side-chip-do { background: #E8F7EF; color: #0F766E; }
+        .side-chip-avoid { background: #FFF4E5; color: #B45309; }
+        .side-chip-alert { background: #FEE2E2; color: #B91C1C; }
     </style>
 </head>
 <body>
@@ -247,7 +504,7 @@
     <div class="app-header">
         <span class="icon-btn" style="color:var(--toss-grey);">뒤로</span>
         <h1>비만 치료제 투약 기록</h1>
-        <span class="icon-btn" onclick="openShareModal()">공유하기</span>
+        <span class="icon-btn" style="visibility:hidden;">공유하기</span>
     </div>
     <div class="module-tabs">
         <button class="module-tab-btn active" id="navDiary" onclick="switchTab('diary')">주사 기록</button>
@@ -263,14 +520,11 @@
             </div>
 
             <div class="card" style="background:#F8FBFF; border:1px solid #E3EDF9;">
-                <div class="card-title">
-                    <span class="section-title">투약 용량별 인바디 변화</span>
-                    <div class="zoom-btn-group">
-                        <button class="zoom-btn" onclick="openMetricSetupModal()" title="지표 편집">⚙</button>
-                        <button class="zoom-btn" onclick="zoomGraph(1.4)" title="확대">+</button>
-                        <button class="zoom-btn" onclick="zoomGraph(0.6)" title="축소">-</button>
-                    </div>
+                <div class="card-title" style="margin-bottom:10px;">
+                    <span class="section-title" style="white-space:nowrap;">투약 용량별 인바디 변화</span>
+                    <button class="toggle-btn-pill" style="padding:5px 10px;" onclick="openShareModal()">공유하기</button>
                 </div>
+                <div class="graph-meta-row">
                 <div class="graph-data-labels">
                     <button class="metric-info-btn" data-metric-btn="fat" style="color:var(--apple-red)" onclick="openMetricInfo('fat')">● 체지방률 <span style="font-size:10px;">ⓘ</span></button>
                     <button class="metric-info-btn" data-metric-btn="muscle" style="color:var(--apple-green)" onclick="openMetricInfo('muscle')">● 골격근량 <span style="font-size:10px;">ⓘ</span></button>
@@ -280,7 +534,14 @@
                     <button class="metric-info-btn" data-metric-btn="abdominal" style="color:#EA580C; display:none;" onclick="openMetricInfo('abdominal')">● 복부지방률 <span style="font-size:10px;">ⓘ</span></button>
                     <span class="metric-hint">버튼을 누르면 지표 설명 팝업이 열려요</span>
                 </div>
+                <div class="zoom-btn-group">
+                    <button class="zoom-btn" onclick="openMetricSetupModal()" title="지표 편집">⚙</button>
+                    <button class="zoom-btn" onclick="zoomGraph(1.4)" title="확대">+</button>
+                    <button class="zoom-btn" onclick="zoomGraph(0.6)" title="축소">-</button>
+                </div>
+                </div>
                 
+                <div class="graph-shell">
                 <div class="graph-scroll-container" id="graphScrollArea">
                     <div class="graph-view-area" id="graphContainer">
                         <svg class="graph-svg" viewBox="0 0 480 180" preserveAspectRatio="none">
@@ -309,6 +570,10 @@
                         <div class="dose-marker" style="position: absolute; background-color: #1D4ED8; color: white; font-size: 9px; font-weight: 600; padding: 2px 5px; border-radius: 5px; top:12px; left:87.5%; transform: translateX(-50%);">위고비 0.75</div>
                         <div class="graph-axis-x" id="graphLabels"><span>5/14</span><span>5/21</span><span>5/28</span><span>6/04</span><span>6/11</span><span>6/18</span></div>
                     </div>
+                </div>
+                </div>
+                <div style="font-size:12px; color:#0F766E; font-weight:700; background:#ECFDF5; border:1px solid #A7F3D0; border-radius:10px; padding:8px 10px; margin-top:10px;">
+                    지방 위주로 비교적 안정적으로 감소하고 있어요.
                 </div>
             </div>
 
@@ -417,29 +682,73 @@
                             </tbody>
                         </table>
                     </div>
-                    <button class="add-record-btn" style="background:var(--starbucks-green); padding:10px; font-size:13px; border-radius:10px; margin-top:12px; margin-bottom:0;" onclick="exportToCSV()">📥 엑셀(CSV)로 저장하기</button>
                 </div>
             </div>
 
         </div>
 
         <div id="analysisTab" class="tab-panel">
-            <div class="card" style="padding:14px 16px; background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%); border: 1px solid #E3EDF9;">
+            <div class="card premium-compare-card locked" id="premiumCompareCard" style="padding:14px 16px; background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%); border: 1px solid #E3EDF9;">
                 <div class="card-title" style="margin-bottom:10px;">
-                    <span class="section-title">이번 주 인바디 해석 요약</span>
+                    <span class="section-title">프리미엄 변화 해석 리포트</span>
+                    <button id="premiumCompareLockBtn" class="premium-lock-btn" onclick="togglePremiumCompareCard()" title="프리미엄 리포트 잠금/해제">🔒</button>
                 </div>
-                <div class="summary-grid">
-                    <div class="summary-item summary-good"><strong>감량 질</strong><br>양호 · 체지방 중심 감소</div>
-                    <div class="summary-item summary-warn"><strong>근육 보전</strong><br>점검 필요 · 하체 우선 보강</div>
-                    <div class="summary-item summary-action"><strong>이번 주 행동</strong><br>단백질 목표 달성 + 하체 루틴 15분</div>
+                <div class="premium-compare-subtitle">직전 인바디 측정값과 최신 측정값을 비교해 변화 방향을 보여줍니다.</div>
+                <div class="premium-summary-content">
+                    <div class="summary-grid">
+                        <div class="premium-metric-card">
+                            <div class="premium-metric-head">
+                                <span class="premium-metric-name">위상각(PhA)</span>
+                                <span class="premium-delta-badge premium-delta-up-good">+0.2°</span>
+                            </div>
+                            <div class="premium-values">
+                                <div class="premium-val-box"><span class="premium-val-label">직전</span><span class="premium-val-num">5.3°</span></div>
+                                <span class="premium-arrow">→</span>
+                                <div class="premium-val-box"><span class="premium-val-label">현재</span><span class="premium-val-num">5.5°</span></div>
+                            </div>
+                            <div class="premium-metric-note">위상각이 상승해 회복·영양 상태가 개선되는 흐름입니다. 보통 위상각이 낮아지면 세포 건강 저하/컨디션 저하 신호일 수 있어요. 단백질·수면·수분 섭취를 우선 점검해 올리는 것이 좋습니다.</div>
+                        </div>
+
+                        <div class="premium-metric-card">
+                            <div class="premium-metric-head">
+                                <span class="premium-metric-name">세포외수분비율(ECW/TBW)</span>
+                                <span class="premium-delta-badge premium-delta-up-warn">+0.003</span>
+                            </div>
+                            <div class="premium-values">
+                                <div class="premium-val-box"><span class="premium-val-label">직전</span><span class="premium-val-num">0.386</span></div>
+                                <span class="premium-arrow">→</span>
+                                <div class="premium-val-box"><span class="premium-val-label">현재</span><span class="premium-val-num">0.389</span></div>
+                            </div>
+                            <div class="premium-metric-note">수분 정체 경향이 약간 올라 수분·염분 밸런스 점검이 필요합니다.</div>
+                        </div>
+
+                        <div class="premium-metric-card">
+                            <div class="premium-metric-head">
+                                <span class="premium-metric-name">부위별 근육량(왼쪽 하지)</span>
+                                <span class="premium-delta-badge premium-delta-down">-0.4kg</span>
+                            </div>
+                            <div class="premium-values">
+                                <div class="premium-val-box"><span class="premium-val-label">직전</span><span class="premium-val-num">8.6kg</span></div>
+                                <span class="premium-arrow">→</span>
+                                <div class="premium-val-box"><span class="premium-val-label">현재</span><span class="premium-val-num">8.2kg</span></div>
+                            </div>
+                            <div class="premium-metric-note">특이사항: 왼쪽 하지 근육량 감소 폭이 상대적으로 큽니다. 좌우 밸런스 점검이 필요하며, 다음 측정에서 왼쪽 하지 회복 여부를 우선 확인해보세요.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-lock-overlay" id="premiumCompareOverlay">
+                    <div class="premium-lock-panel">
+                        <div class="desc"><b>2회 이상 측정해야 열 수 있는 프리미엄 기능입니다.</b><br>직전 측정과 최신 측정을 비교해 위상각, 세포외수분비, 부위별 근육량의 증감 변화를 해석해줍니다.</div>
+                        <button class="premium-open-btn" onclick="togglePremiumCompareCard()">🔓 미리 열어보기</button>
+                    </div>
                 </div>
             </div>
             <div class="card analysis-section" id="analysisSectionComposition" style="background:#FCFDFF; border:1px solid #E8EEF7;">
                 <div class="card-title">
-                    <span class="section-title">체성분 밸런스 리포트</span>
+                    <span class="section-title">체성분 목표</span>
                     <button onclick="openSpecModal()" style="background:none; border:none; color:var(--toss-blue); font-size:12px; font-weight:600; cursor:pointer;">목표 수정 ⚙️</button>
                 </div>
-                <div style="font-size: 11px; color: var(--toss-grey); margin-bottom: 8px;">신장 <span id="lblHeight">164</span> cm 맞춤 체성분 밸런스 가이드</div>
+                <div style="font-size: 11px; color: var(--toss-grey); margin-bottom: 8px;">신장 <span id="lblHeight">164</span> cm 기준 체성분 목표 설정</div>
                 
                 <table class="body-comp-table">
                     <thead>
@@ -452,84 +761,65 @@
                     </tbody>
                 </table>
 
-                <div style="background: var(--toss-black); color: white; border-radius: 16px; padding: 16px; margin-top: 16px; font-size: 12px; line-height: 1.6;">
-                    <b style="color:#D1E4FF; font-size:13px; display:block; margin-bottom:4px;">인바디 AI 체성분 리포트</b>
-                    인바디 체성분 빅데이터를 분석한 결과, 약물 투약 이후 <b>순수 체지방만 -3.2kg 연소</b>되었으며 근육량 소실 없이 <b>골격근량은 +0.3kg 증가</b>했습니다. 감량의 질이 매우 우수하며 요요 가능성이 낮은 가장 이상적인 대사 관리 상태를 유지하고 있습니다.
+            </div>
+
+            <div class="card analysis-section" id="analysisSectionMuscle" style="border: 1px solid #E3EDF9;">
+                <div class="card-title">
+                    <span class="section-title">오늘의 가이드</span>
+                    <span id="proteinStatusBadge" class="feed-site-badge" style="background:#E8F3FF; color:var(--toss-blue);">점검 필요</span>
+                </div>
+
+                <div class="guide-block">
+                    <div class="guide-block-title">오늘 단백질 현황</div>
+                    <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+                        <div class="metric-chip"><span class="label">목표</span><span class="value" id="dailyProteinTarget">95g</span></div>
+                        <div class="metric-chip"><span class="label">현재</span><span class="value" id="todayProteinIntakeTxt">62g</span></div>
+                        <div class="metric-chip"><span class="label">남은량</span><span class="value" id="proteinRemainTxt">33g</span></div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>오늘 프로틴 섭취량 (g)</label>
+                        <input type="number" class="form-control" id="inputProteinIntake" value="62" placeholder="예: 90">
+                    </div>
+                </div>
+                <div class="today-side-preview">
+                    <div class="guide-block-title">오늘 선택한 부작용</div>
+                    <div id="todaySideEffectPreview" class="side-effect-chip-wrap"></div>
+                </div>
+                <button class="add-record-btn" style="padding:12px; font-size:14px; margin-bottom:10px;" onclick="updateProteinCoach()">오늘의 가이드 보기</button>
+
+                <div class="ad-slot">
+                    <div style="font-size:11px; font-weight:700; color:var(--toss-grey);">외부 업체 연동 영역 (준비중)</div>
+                    <div style="font-size:11px; color:var(--toss-sub-grey); margin-top:6px;">단백질/운동 추천 제휴 배너는 이 영역에 연결될 예정입니다.</div>
                 </div>
             </div>
 
-            <div class="card analysis-section" id="analysisSectionDose" style="border: 1px solid rgba(49, 130, 246, 0.25);">
-                <div class="card-title" style="color: var(--toss-blue);">약물 농도 예상 추이</div>
+            <div class="card analysis-section" id="analysisSectionDose" style="border: 1px solid #E3EDF9;">
+                <div class="feature-mask-wrap">
+                <div class="card-title"><span class="section-title" style="color: var(--toss-blue);">약물 농도 예상 추이</span></div>
                 <div class="concentration-curve-area">
                     <svg style="width:100%; height:100%;" viewBox="0 0 340 140" preserveAspectRatio="none">
                         <line x1="34" y1="20" x2="34" y2="116" stroke="#CBD5E1" stroke-width="1.2"/>
                         <line x1="34" y1="116" x2="324" y2="116" stroke="#CBD5E1" stroke-width="1.2"/>
-                        <line x1="34" y1="28" x2="324" y2="28" stroke="#E5E8EB" stroke-width="1"/>
-                        <line x1="34" y1="52" x2="324" y2="52" stroke="#E5E8EB" stroke-width="1"/>
-                        <line x1="34" y1="76" x2="324" y2="76" stroke="#E5E8EB" stroke-width="1"/>
-                        <line x1="34" y1="100" x2="324" y2="100" stroke="#E5E8EB" stroke-width="1"/>
+                        <line x1="34" y1="36" x2="324" y2="36" stroke="#E8EEF7" stroke-width="1"/>
+                        <line x1="34" y1="76" x2="324" y2="76" stroke="#E8EEF7" stroke-width="1"/>
                         <line x1="224" y1="20" x2="224" y2="116" stroke="#BFDBFE" stroke-width="1" stroke-dasharray="3,3"/>
 
-                        <path d="M 34 28 C 84 36, 122 56, 168 72 C 206 84, 244 92, 324 104 L 324 116 L 34 116 Z" fill="rgba(49,130,246,0.14)"/>
-                        <path d="M 34 28 C 84 36, 122 56, 168 72 C 206 84, 244 92, 324 104" fill="none" stroke="var(--toss-blue)" stroke-width="3.5" stroke-linecap="round"/>
-
-                        <circle cx="224" cy="86" r="4.2" fill="#FFFFFF" stroke="var(--toss-blue)" stroke-width="2.4"/>
-                        <circle cx="324" cy="104" r="3.8" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2"/>
+                        <path d="M 34 30 C 88 40, 150 64, 210 86 C 250 98, 282 104, 324 108 L 324 116 L 34 116 Z" fill="rgba(49,130,246,0.14)"/>
+                        <path d="M 34 30 C 88 40, 150 64, 210 86 C 250 98, 282 104, 324 108" fill="none" stroke="var(--toss-blue)" stroke-width="3.2" stroke-linecap="round"/>
+                        <circle cx="224" cy="89" r="4.2" fill="#FFFFFF" stroke="var(--toss-blue)" stroke-width="2.2"/>
                     </svg>
                     <span style="position:absolute; top:16px; left:178px; font-size:12px; font-weight:700; color:var(--toss-blue); background:#EEF4FF; border:1px solid #BFDBFE; border-radius:999px; padding:3px 8px;">체내 잔류량 약 62%</span>
                     <span style="position:absolute; left:8px; top:18px; font-size:10px; color:var(--toss-sub-grey);">100%</span>
-                    <span style="position:absolute; left:8px; top:66px; font-size:10px; color:var(--toss-sub-grey);">50%</span>
+                    <span style="position:absolute; left:8px; top:72px; font-size:10px; color:var(--toss-sub-grey);">50%</span>
                     <span style="position:absolute; left:8px; top:108px; font-size:10px; color:var(--toss-sub-grey);">0%</span>
                     <span style="position:absolute; left:38px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">투약 직후</span>
                     <span style="position:absolute; left:136px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">2일</span>
                     <span style="position:absolute; left:218px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">4일</span>
                     <span style="position:absolute; right:10px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">7일</span>
+                    <div class="feature-mask">
+                        <div class="feature-mask-text">나중에 추가될 기능입니다</div>
+                    </div>
                 </div>
-                <div style="font-size: 11px; color: var(--toss-grey); line-height: 1.5; background: var(--toss-light-grey); padding: 12px; border-radius: 14px; margin-top: 10px;">
-                    <b>⚠️ 주의사항 안내:</b> 예상 체내 용량은 복약 일기 데이터를 기반으로 계산된 가이드 정보이며, 환자 고유의 신진대사 속도에 따라 실제 잔류량과 차이가 있을 수 있습니다. 복약 조절은 반드시 의료 전문가와 상담해 주세요.<br><br>
-                    <b>📋 출처 근거 문헌:</b><br>
-                    • Wegovy(semaglutide) injection for subcutaneous use - 2017 US Food and Drug Administation<br>
-                    • Mounjaro(tizerpatide) injection for subcutaneous use-2021 US Food and Drug Administiaion
-                </div>
-            </div>
-
-            <div class="card analysis-section" id="analysisSectionMuscle" style="border: 1px solid rgba(34, 197, 94, 0.25);">
-                <div class="card-title">
-                    <span>오늘의 근육 보전 가이드 💪</span>
-                    <span id="proteinStatusBadge" class="feed-site-badge" style="background:#E8F3FF; color:var(--toss-blue);">점검 필요</span>
-                </div>
-
-                <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:12px;">
-                    <div class="metric-chip"><span class="label">목표</span><span class="value" id="dailyProteinTarget">95g</span></div>
-                    <div class="metric-chip"><span class="label">현재</span><span class="value" id="todayProteinIntakeTxt">62g</span></div>
-                    <div class="metric-chip"><span class="label">남은량</span><span class="value" id="proteinRemainTxt">33g</span></div>
-                </div>
-
-                <div class="form-group" style="margin-bottom:10px;">
-                    <label>오늘 프로틴 섭취량 (g)</label>
-                    <input type="number" class="form-control" id="inputProteinIntake" value="62" placeholder="예: 90">
-                </div>
-                <div class="form-group" style="margin-bottom:10px;">
-                    <label>운동 상태</label>
-                    <select class="form-control" id="workoutStatus">
-                        <option value="done">운동함</option>
-                        <option value="missed">운동 못함</option>
-                    </select>
-                </div>
-
-                <button class="add-record-btn" style="padding:12px; font-size:14px; margin-bottom:10px;" onclick="updateProteinCoach()">오늘 해야 할 것 보기</button>
-
-                <div id="muscleCoachMsg" style="font-size:12px; color:#334155; background:#F8FAFC; border-radius:12px; padding:12px; line-height:1.7;">
-                    1) 오늘 단백질 33g 추가 섭취<br>
-                    2) 하체 근육 감소(-0.6kg) 보완: 스쿼트/런지 15분<br>
-                    3) 운동을 못했다면 취침 전 단백질 1회 보충
-                </div>
-                <div style="margin-top:8px; font-size:11px; color:var(--toss-sub-grey);">
-                    본 가이드는 일반적인 추천/참고용 정보이며, 개인의 건강 상태·복용 약물·기저질환에 따라 적용이 달라질 수 있습니다. 실제 식단·운동·투약 조절은 반드시 본인 상태에 맞게 판단하고 필요 시 의료진과 상담해 주세요.
-                </div>
-                <div class="ad-slot">
-                    <div style="font-size:11px; font-weight:700; color:var(--toss-grey);">외부 업체 연동 영역 (준비중)</div>
-                    <div style="font-size:11px; color:var(--toss-sub-grey); margin-top:6px;">단백질/운동 추천 제휴 배너는 이 영역에 연결될 예정입니다.</div>
                 </div>
             </div>
             <div class="card" style="padding:16px;">
@@ -738,15 +1028,41 @@
     </div>
 </div>
 
+<div class="modal-overlay" id="coachTodoModal" style="align-items: center; padding: 0 20px; display:none;">
+    <div class="modal-window" style="border-radius: 22px; align-self: center; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
+        <div class="section-title" style="font-size: 17px; margin-bottom: 6px;">오늘의 가이드</div>
+        <div style="font-size:11px; color:var(--toss-sub-grey); margin-bottom:10px;">오늘 실행할 항목과 부작용 대응 정보를 함께 확인하세요.</div>
+
+        <div id="todayGuideMuscleSection" style="display:none; margin-bottom:10px;">
+            <div style="font-size:12px; font-weight:800; color:#1F2E4D; margin:0 0 6px 2px;">오늘 해야 할 것</div>
+            <div id="coachTodoBody" class="coach-todo-wrap"></div>
+        </div>
+
+        <div id="todayGuideSideSection" style="display:none;">
+            <div style="font-size:12px; font-weight:800; color:#1F2E4D; margin:0 0 6px 2px;">부작용 대응 가이드</div>
+            <div id="sideEffectGuideBody" class="coach-todo-wrap"></div>
+        </div>
+        <div class="coach-todo-note" style="margin-top:10px;">
+            본 가이드는 일반적인 추천/참고용 정보이며, 개인의 건강 상태·복용 약물·기저질환에 따라 적용이 달라질 수 있습니다. 실제 식단·운동·투약 조절은 반드시 본인 상태에 맞게 판단하고 필요 시 의료진과 상담해 주세요.
+        </div>
+
+        <button class="add-record-btn" style="margin-top:12px; margin-bottom:0;" onclick="closeCoachTodoModal()">확인</button>
+    </div>
+</div>
+
 <div class="modal-overlay" id="shareModal" style="align-items: flex-end;">
     <div class="share-window">
         <div style="width: 40px; height: 4px; background: #E5E8EB; border-radius: 2px; margin: 0 auto 16px auto;"></div>
         <div style="font-size: 17px; font-weight: 700; color: var(--toss-black); margin-bottom: 4px;">나의 감량 변화 인증하기</div>
+        <div class="share-preview-box">
+            <div class="label">공유 이미지 미리보기 (투약 용량별 인바디 변화)</div>
+            <img id="sharePreviewImg" class="share-preview-img" alt="그래프 공유 미리보기">
+        </div>
         <div class="share-platform-row">
-            <button class="share-channel-btn" onclick="alert('📸 인스타스토리 공유 성공')"><div class="share-icon-circle" style="background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);">📸</div><span>인스타 스토리</span></button>
+            <button class="share-channel-btn" onclick="shareCapturedGraph('instagram')"><div class="share-icon-circle" style="background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);">📸</div><span>인스타 스토리</span></button>
             <button class="share-channel-btn" onclick="openCafePickerFromShare()"><div class="share-icon-circle" style="background: #03C75A; font-size:18px;">N</div><span>비만약 네이버 카페</span></button>
-            <button class="share-channel-btn" onclick="alert('💬 카카오톡 전송 성공')"><div class="share-icon-circle" style="background: #FEE500; color:#191F28;">💬</div><span>카카오톡</span></button>
-            <button class="share-channel-btn" onclick="alert('💾 이미지 저장 성공')"><div class="share-icon-circle" style="background: #8B95A1;">💾</div><span>이미지 저장</span></button>
+            <button class="share-channel-btn" onclick="shareCapturedGraph('kakao')"><div class="share-icon-circle" style="background: #FEE500; color:#191F28;">💬</div><span>카카오톡</span></button>
+            <button class="share-channel-btn" onclick="downloadCapturedGraph()"><div class="share-icon-circle" style="background: #8B95A1;">💾</div><span>이미지 저장</span></button>
         </div>
         <button class="add-record-btn" style="background-color:var(--toss-light-grey); color:var(--toss-black); margin-top:16px; margin-bottom: 4px;" onclick="closeShareModal()">취소</button>
     </div>
@@ -763,7 +1079,34 @@
 
 <script>
     const FEED_COLLAPSE_COUNT = 3;
+    const LAST_INJECTION_KEY = 'lastInjectionSelection';
+    const LAST_SIDE_EFFECT_PAYLOAD_KEY = 'lastSideEffectPayload';
     let feedExpanded = false;
+    let shareGraphDataUrl = '';
+    const sideEffectGuideMap = {
+        "메스꺼움": { do: "소량 식사 + 미지근한 물을 자주 마셔보세요.", avoid: "기름진 음식/공복 장시간 유지는 피하세요.", alert: "구토가 반복되거나 24시간 이상 식사·수분 섭취가 어려우면 의료진 상담." },
+        "구토감": { do: "수분을 한 번에 많이 말고 조금씩 나눠 섭취하세요.", avoid: "카페인·자극적인 음식은 당일 피하세요.", alert: "실제 구토가 반복되거나 탈수 증상이 있으면 의료진 상담." },
+        "두통": { do: "수분 보충 후 휴식하고, 식사 간격을 너무 길게 두지 마세요.", avoid: "수면 부족/과도한 카페인은 피하세요.", alert: "심한 두통이 지속되거나 어지럼·시야 이상 동반 시 진료 권장." },
+        "소화불량": { do: "식사량을 줄이고 천천히 드세요.", avoid: "야식·과식·맵고 기름진 음식은 피하세요.", alert: "복통이 심하거나 2~3일 이상 지속되면 의료진 상담." },
+        "변비/설사": { do: "수분과 식이섬유 섭취를 점검하고 규칙적인 식사를 유지하세요.", avoid: "한 번에 과도한 유제품/자극식 섭취는 피하세요.", alert: "혈변·극심한 복통·탈수 증상이 있으면 즉시 진료 권장." },
+        "무기력증": { do: "수면과 단백질 섭취를 먼저 보완해보세요.", avoid: "식사 건너뛰기와 과도한 일정은 피하세요.", alert: "일상에 지장이 클 정도로 지속되면 의료진 상담." },
+        "생리불순": { do: "체중 변화 속도·영양 상태를 함께 점검하세요.", avoid: "무리한 저열량 식단은 피하세요.", alert: "주기 변화가 반복되거나 통증/출혈 이상 시 산부인과 상담 권장." }
+    };
+
+    function loadLastInjectionSelection() {
+        try {
+            const raw = localStorage.getItem(LAST_INJECTION_KEY);
+            if (!raw) return null;
+            return JSON.parse(raw);
+        } catch (_) {
+            return null;
+        }
+    }
+
+    function saveLastInjectionSelection(med, dose, site) {
+        const payload = { med, dose, site };
+        localStorage.setItem(LAST_INJECTION_KEY, JSON.stringify(payload));
+    }
 
     function switchTab(tabName) {
         document.getElementById('diaryTab').classList.remove('active');
@@ -851,28 +1194,183 @@
         closeSpecModal();
     }
 
-    function exportToCSV() {
-        let table = document.getElementById("dataLogTable");
-        let csv = [];
-        for (let i = 0; i < table.rows.length; i++) {
-            let row = [], cols = table.rows[i].cells;
-            for (let j = 0; j < cols.length; j++) row.push('"' + cols[j].innerText.replace(/"/g, '""') + '"');
-            csv.push(row.join(","));
+    function openModal() {
+        const last = loadLastInjectionSelection();
+        if (last) {
+            const medEl = document.getElementById('inputMed');
+            const doseEl = document.getElementById('inputDose');
+            const siteEl = document.getElementById('inputSite');
+            if (medEl && last.med && Array.from(medEl.options).some(o => o.value === last.med)) medEl.value = last.med;
+            if (doseEl && last.dose && Array.from(doseEl.options).some(o => o.value === last.dose)) doseEl.value = last.dose;
+            if (siteEl && last.site && Array.from(siteEl.options).some(o => o.value === last.site)) siteEl.value = last.site;
         }
-        let csvContent = "data:text/csv;charset=utf-8,\uFEFF" + csv.join("\n");
-        let encodedUri = encodeURI(csvContent);
-        let link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "인바디_투약기록.csv");
+        document.getElementById('recordModal').style.display = 'flex';
+    }
+    function closeModal() { document.getElementById('recordModal').style.display = 'none'; }
+    async function openShareModal() {
+        document.getElementById('shareModal').style.display = 'flex';
+        await prepareShareGraphPreview();
+    }
+    function closeShareModal() { document.getElementById('shareModal').style.display = 'none'; }
+
+    async function prepareShareGraphPreview() {
+        const preview = document.getElementById('sharePreviewImg');
+        if (!preview) return;
+        try {
+            const graphContainer = document.getElementById('graphContainer');
+            if (!graphContainer) return;
+            const graphSvg = graphContainer.querySelector('svg');
+            if (!graphSvg) return;
+
+            const width = graphContainer.clientWidth || 480;
+            const height = graphContainer.clientHeight || 180;
+            const padTop = 8;
+            const padBottom = 24;
+            const exportHeight = height + padTop + padBottom;
+
+            const serialized = new XMLSerializer().serializeToString(graphSvg);
+            const svgBlob = new Blob([serialized], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(svgBlob);
+
+            const img = new Image();
+            await new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = url;
+            });
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = exportHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, width, exportHeight);
+            ctx.drawImage(img, 0, padTop, width, height);
+
+            const containerRect = graphContainer.getBoundingClientRect();
+            const drawX = (clientX) => (clientX - containerRect.left) * (width / containerRect.width);
+            const drawY = (clientY) => ((clientY - containerRect.top) * (height / containerRect.height)) + padTop;
+
+            const dateLabelWrap = document.getElementById('graphLabels');
+            if (dateLabelWrap) {
+                ctx.fillStyle = '#5D6E8B';
+                ctx.font = '600 10px "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'alphabetic';
+                dateLabelWrap.querySelectorAll('span').forEach((span) => {
+                    const r = span.getBoundingClientRect();
+                    const x = drawX(r.left + r.width / 2);
+                    const y = drawY(r.bottom);
+                    ctx.fillText(span.textContent.trim(), x, y);
+                });
+            }
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.strokeStyle = '#30496F';
+            ctx.lineWidth = 2;
+            graphContainer.querySelectorAll('.node-dot').forEach((dot) => {
+                const r = dot.getBoundingClientRect();
+                const x = drawX(r.left + r.width / 2);
+                const y = drawY(r.top + r.height / 2);
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+            });
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = '600 9px "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif';
+            graphContainer.querySelectorAll('.dose-marker').forEach((marker) => {
+                const r = marker.getBoundingClientRect();
+                const x = drawX(r.left + r.width / 2);
+                const y = drawY(r.top + r.height / 2);
+                const label = marker.textContent.trim();
+                const padX = 6;
+                const h = 16;
+                const w = ctx.measureText(label).width + padX * 2;
+                const bg = getComputedStyle(marker).backgroundColor || '#30496F';
+                ctx.fillStyle = bg;
+                ctx.beginPath();
+                const left = x - w / 2;
+                const top = y - h / 2;
+                const radius = 5;
+                ctx.moveTo(left + radius, top);
+                ctx.lineTo(left + w - radius, top);
+                ctx.quadraticCurveTo(left + w, top, left + w, top + radius);
+                ctx.lineTo(left + w, top + h - radius);
+                ctx.quadraticCurveTo(left + w, top + h, left + w - radius, top + h);
+                ctx.lineTo(left + radius, top + h);
+                ctx.quadraticCurveTo(left, top + h, left, top + h - radius);
+                ctx.lineTo(left, top + radius);
+                ctx.quadraticCurveTo(left, top, left + radius, top);
+                ctx.closePath();
+                ctx.fill();
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillText(label, x, y + 0.5);
+            });
+
+            shareGraphDataUrl = canvas.toDataURL('image/png');
+            preview.src = shareGraphDataUrl;
+            URL.revokeObjectURL(url);
+        } catch (_) {
+            const svg = document.querySelector('#graphContainer svg');
+            if (!svg) return;
+            const xml = new XMLSerializer().serializeToString(svg);
+            const encoded = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
+            shareGraphDataUrl = encoded;
+            preview.src = shareGraphDataUrl;
+        }
+    }
+
+    function togglePremiumCompareCard() {
+        const card = document.getElementById('premiumCompareCard');
+        const btn = document.getElementById('premiumCompareLockBtn');
+        if (!card || !btn) return;
+        card.classList.toggle('locked');
+        const locked = card.classList.contains('locked');
+        btn.textContent = locked ? '🔒' : '🔓';
+        btn.title = locked ? '프리미엄 리포트 잠금/해제' : '프리미엄 리포트 잠금으로 전환';
+    }
+
+    async function shareCapturedGraph(channel) {
+        if (!shareGraphDataUrl) {
+            await prepareShareGraphPreview();
+        }
+        if (!shareGraphDataUrl) {
+            alert('그래프 이미지를 준비하지 못했습니다. 다시 시도해 주세요.');
+            return;
+        }
+
+        try {
+            const blob = await (await fetch(shareGraphDataUrl)).blob();
+            const file = new File([blob], 'inbody-dose-graph.png', { type: blob.type || 'image/png' });
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                    title: '투약 용량별 인바디 변화',
+                    text: '투약 용량별 인바디 변화 그래프를 공유합니다.',
+                    files: [file]
+                });
+                return;
+            }
+            downloadCapturedGraph();
+            alert(`${channel === 'instagram' ? '인스타' : '카카오톡'} 공유용 이미지가 저장되었습니다. 업로드해서 공유해 주세요.`);
+        } catch (_) {
+            downloadCapturedGraph();
+            alert('공유 기능을 직접 지원하지 않는 환경입니다. 저장된 이미지를 업로드해 공유해 주세요.');
+        }
+    }
+
+    function downloadCapturedGraph() {
+        if (!shareGraphDataUrl) return;
+        const link = document.createElement('a');
+        link.href = shareGraphDataUrl;
+        link.download = '투약_용량별_인바디_변화.png';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     }
-
-    function openModal() { document.getElementById('recordModal').style.display = 'flex'; }
-    function closeModal() { document.getElementById('recordModal').style.display = 'none'; }
-    function openShareModal() { document.getElementById('shareModal').style.display = 'flex'; }
-    function closeShareModal() { document.getElementById('shareModal').style.display = 'none'; }
     function openCafePickerFromShare() {
         closeShareModal();
         openCafePicker();
@@ -907,6 +1405,116 @@
     function closeWeeklyReminder() { document.getElementById('weeklyReminderModal').style.display = 'none'; }
     function openPhaUnavailableInfo() { document.getElementById('phaUnavailableModal').style.display = 'flex'; }
     function closePhaUnavailableInfo() { document.getElementById('phaUnavailableModal').style.display = 'none'; }
+    function openTodayGuideModal(muscleHtml, sideHtml) {
+        const muscleSection = document.getElementById('todayGuideMuscleSection');
+        const sideSection = document.getElementById('todayGuideSideSection');
+        const muscleBody = document.getElementById('coachTodoBody');
+        const sideBody = document.getElementById('sideEffectGuideBody');
+        const hasMuscle = !!(muscleHtml && muscleHtml.trim());
+        const hasSide = !!(sideHtml && sideHtml.trim());
+        if (muscleSection) muscleSection.style.display = hasMuscle ? 'block' : 'none';
+        if (sideSection) sideSection.style.display = hasSide ? 'block' : 'none';
+        if (muscleBody) muscleBody.innerHTML = hasMuscle ? muscleHtml : '';
+        if (sideBody) sideBody.innerHTML = hasSide ? sideHtml : '';
+        document.getElementById('coachTodoModal').style.display = 'flex';
+    }
+    function closeCoachTodoModal() { document.getElementById('coachTodoModal').style.display = 'none'; }
+    function openCoachTodoModal(html) { openTodayGuideModal(html, ""); }
+    function openSideEffectGuideModal(html) { openTodayGuideModal("", html); }
+    function closeSideEffectGuideModal() { closeCoachTodoModal(); }
+    function normalizeSideEffectName(text) {
+        return String(text || "").replace(/✏️/g, "").replace(/[🤢🤮🤕⚡💩🥱🩸]/g, "").trim();
+    }
+    function escapeHtml(text) {
+        return String(text || "")
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+    function buildSideEffectGuideHtml(effects, customText) {
+        const normalized = effects.map(normalizeSideEffectName).filter(Boolean);
+        const unique = Array.from(new Set(normalized));
+        if (customText && customText.trim()) unique.push("직접 입력");
+        if (!unique.length) return "";
+        let blocks = "";
+        unique.forEach((name) => {
+            const guide = sideEffectGuideMap[name] || {
+                do: "수분·식사·수면 상태를 먼저 점검해보세요.",
+                avoid: "증상을 악화시키는 자극 요인은 피하세요.",
+                alert: "증상이 심하거나 지속되면 의료진 상담을 권장합니다."
+            };
+            const title = name === "직접 입력" ? `직접 입력 증상: ${customText.trim()}` : name;
+            blocks +=
+                `<div class="side-guide-item">` +
+                    `<div class="side-guide-title">${title}</div>` +
+                    `<div class="side-guide-row"><span class="side-guide-chip side-chip-do">지금 해보기</span>${guide.do}</div>` +
+                    `<div class="side-guide-row"><span class="side-guide-chip side-chip-avoid">피하기</span>${guide.avoid}</div>` +
+                    `<div class="side-guide-row"><span class="side-guide-chip side-chip-alert">문의 기준</span>${guide.alert}</div>` +
+                `</div>`;
+        });
+        return `<div class="side-guide-list">${blocks}</div>`;
+    }
+    function getLatestSideEffectGuideHtml() {
+        try {
+            const raw = localStorage.getItem(LAST_SIDE_EFFECT_PAYLOAD_KEY);
+            if (!raw) return "";
+            const parsed = JSON.parse(raw);
+            return buildSideEffectGuideHtml(parsed.effects || [], parsed.customText || "");
+        } catch (_) {
+            return "";
+        }
+    }
+    function updateTodaySideEffectPreview() {
+        const previewEl = document.getElementById('todaySideEffectPreview');
+        if (!previewEl) return;
+        const emojiMap = {
+            "메스꺼움": "🤢",
+            "구토감": "🤮",
+            "두통": "🤕",
+            "소화불량": "⚡",
+            "변비/설사": "💩",
+            "무기력증": "🥱",
+            "생리불순": "🩸"
+        };
+        try {
+            const raw = localStorage.getItem(LAST_SIDE_EFFECT_PAYLOAD_KEY);
+            if (!raw) {
+                previewEl.innerHTML = '<span class="side-effect-chip empty">없음</span>';
+                return;
+            }
+            const parsed = JSON.parse(raw);
+            const effects = (parsed.effects || []).map((item) => normalizeSideEffectName(item)).filter(Boolean);
+            const unique = Array.from(new Set(effects));
+            const custom = parsed.customText && String(parsed.customText).trim() ? String(parsed.customText).trim() : "";
+            if (custom) {
+                unique.push("직접 입력");
+            }
+            if (!unique.length) {
+                previewEl.innerHTML = '<span class="side-effect-chip empty">없음</span>';
+                return;
+            }
+            const chips = unique.map((name) => {
+                if (name === "직접 입력") {
+                    return `<span class="side-effect-chip">✏️ ${escapeHtml(name + ": " + custom)}</span>`;
+                }
+                const emoji = emojiMap[name] || "•";
+                return `<span class="side-effect-chip">${emoji} ${escapeHtml(name)}</span>`;
+            }).join("");
+            previewEl.innerHTML = chips;
+        } catch (_) {
+            previewEl.innerHTML = '<span class="side-effect-chip empty">없음</span>';
+        }
+    }
+    function openSideEffectGuideByPayload(encodedEffects, encodedCustom) {
+        try {
+            const effects = JSON.parse(decodeURIComponent(encodedEffects || '[]'));
+            const customText = decodeURIComponent(encodedCustom || '');
+            const html = buildSideEffectGuideHtml(effects, customText);
+            if (html) openSideEffectGuideModal(html);
+        } catch (_) {}
+    }
     function openMetricInfo(metric) {
         const titleEl = document.getElementById('metricInfoTitle');
         const bodyEl = document.getElementById('metricInfoBody');
@@ -1012,52 +1620,58 @@
         document.getElementById('customSideInput').style.display = tag.classList.contains('selected') ? 'block' : 'none';
     }
 
-    function updateProteinCoach() {
+    function buildCoachTodoHtml(applyBadge = true) {
         const target = 95;
         const intakeInput = document.getElementById('inputProteinIntake');
         const intake = Math.max(0, parseFloat(intakeInput.value) || 0);
-        const noWorkout = document.getElementById('workoutStatus').value === 'missed';
         const gap = Math.round((target - intake) * 10) / 10;
 
         document.getElementById('todayProteinIntakeTxt').innerText = intake.toFixed(0) + "g";
         document.getElementById('proteinRemainTxt').innerText = (gap > 0 ? gap.toFixed(0) : 0) + "g";
         const badge = document.getElementById('proteinStatusBadge');
-        const coachMsg = document.getElementById('muscleCoachMsg');
+        let todoItems = [];
 
         if (gap > 0) {
-            badge.innerText = "보충 필요";
-            badge.style.background = "#FEE2E2";
-            badge.style.color = "#B91C1C";
-
-            if (noWorkout) {
-                coachMsg.innerHTML =
-                    "1) 오늘 단백질 <b>" + gap.toFixed(0) + "g</b> 추가 섭취<br>" +
-                    "2) 운동 못한 날 대체: 보충제 1회(20~25g) + 단백질 간식 1회<br>" +
-                    "3) 내일 15분 하체 루틴(스쿼트/런지) 우선 실행";
-            } else {
-                coachMsg.innerHTML =
-                    "1) 오늘 단백질 <b>" + gap.toFixed(0) + "g</b> 추가 섭취<br>" +
-                    "2) 식사 보완: 닭가슴살/달걀/두부 중 2개 선택<br>" +
-                    "3) 하체 근육 감소(-0.6kg) 대응: 하체 저항운동 15분";
+            if (applyBadge && badge) {
+                badge.innerText = "보충 필요";
+                badge.style.background = "#FEE2E2";
+                badge.style.color = "#B91C1C";
             }
-            alert("🔔 오늘 단백질 목표까지 " + gap.toFixed(0) + "g 남았어요.");
+
+            todoItems = [
+                "오늘 단백질 <b>" + gap.toFixed(0) + "g</b> 추가 섭취",
+                "식사 보완: 닭가슴살/달걀/두부 중 2개 선택",
+                "취침 전 보충제 1회(20~25g)로 마무리"
+            ];
         } else {
-            badge.innerText = "목표 달성";
-            badge.style.background = "#DCFCE7";
-            badge.style.color = "#166534";
-
-            if (noWorkout) {
-                coachMsg.innerHTML =
-                    "1) 단백질 목표 달성 완료<br>" +
-                    "2) 운동은 쉬었으니 내일 하체 루틴 20분 예약<br>" +
-                    "3) 취침 전 수분 섭취로 회복 보조";
-            } else {
-                coachMsg.innerHTML =
-                    "1) 운동 + 단백질 목표 모두 달성<br>" +
-                    "2) 현재 루틴 유지(근육 보전 상태 양호)<br>" +
-                    "3) 다음 측정 때 하체 변화 우선 체크";
+            if (applyBadge && badge) {
+                badge.innerText = "목표 달성";
+                badge.style.background = "#DCFCE7";
+                badge.style.color = "#166534";
             }
+
+            todoItems = [
+                "단백질 목표 달성 완료",
+                "현재 섭취 패턴 유지(근육 보전 상태 양호)",
+                "다음 인바디에서 골격근량 변화 우선 체크"
+            ];
         }
+        return (
+            '<div class="coach-todo-grid">' +
+            todoItems.map((item, idx) =>
+                '<div class="coach-todo-item">' +
+                    '<span class="coach-todo-step">' + (idx + 1) + '</span>' +
+                    '<div class="coach-todo-text">' + item + '</div>' +
+                '</div>'
+            ).join('') +
+            '</div>'
+        );
+    }
+
+    function updateProteinCoach() {
+        const coachHtml = buildCoachTodoHtml(true);
+        const latestSideHtml = getLatestSideEffectGuideHtml();
+        openTodayGuideModal(coachHtml, latestSideHtml);
     }
 
     function parseMetricNumber(text) {
@@ -1134,6 +1748,8 @@
         if(!dose) { alert("⚠️ 투약 용량을 선택해주세요."); return; }
         if(!site) { alert("⚠️ 주사 부위를 선택해주세요."); return; }
 
+        saveLastInjectionSelection(med, dose, site);
+
         let diet = document.getElementById('inputDiet').value || "미입력";
         let exercise = document.getElementById('inputExercise').value || "미입력";
 
@@ -1145,11 +1761,14 @@
         });
         
         let customInput = document.getElementById('customSideInput');
+        let customSideText = "";
         if(customInput && customInput.style.display === 'block' && customInput.value.trim() !== "") {
-            selectedSideEffects.push("✏️ " + customInput.value.trim());
+            customSideText = customInput.value.trim();
+            selectedSideEffects.push("✏️ " + customSideText);
         }
         
         let sideEffectStr = selectedSideEffects.length > 0 ? selectedSideEffects.join(', ') : "없음";
+        localStorage.setItem(LAST_SIDE_EFFECT_PAYLOAD_KEY, JSON.stringify({ effects: selectedSideEffects, customText: customSideText || "" }));
 
         let feedArea = document.getElementById('feedViewArea');
         let newItem = document.createElement('div');
@@ -1187,9 +1806,12 @@
         alert("🎉 주사 기록과 일기가 성공적으로 저장되었습니다!");
         closeModal();
 
-        document.getElementById('inputMed').value = "";
-        document.getElementById('inputDose').value = "";
-        document.getElementById('inputSite').value = "";
+        const sideGuideHtml = buildSideEffectGuideHtml(selectedSideEffects, customSideText);
+        updateTodaySideEffectPreview();
+        if (sideGuideHtml) {
+            openSideEffectGuideModal(sideGuideHtml);
+        }
+
         document.getElementById('inputDiet').value = "";
         document.getElementById('inputExercise').value = "";
         document.querySelectorAll('#recordModal .tag-item.selected').forEach(el => el.classList.remove('selected'));
@@ -1199,6 +1821,9 @@
     }
 
     window.addEventListener('load', function () {
+        if (window.location.hash === '#analysis') {
+            switchTab('analysis');
+        }
         initMetricSetupFromStorage();
 
         const firstSetupDone = localStorage.getItem('metricSetupDone');
@@ -1214,6 +1839,7 @@
             document.getElementById('weeklyReminderModal').style.display = 'flex';
             localStorage.setItem('weeklyReminderShownDate', today.toISOString());
         }
+        updateTodaySideEffectPreview();
         applyMetricRiskColors();
         applyFeedCollapse();
     });
