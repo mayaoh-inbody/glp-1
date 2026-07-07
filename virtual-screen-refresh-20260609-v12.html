@@ -374,6 +374,165 @@
         .form-group { margin-bottom: 14px; }
         .form-group label { display: block; font-size: 12px; color: var(--toss-grey); margin-bottom: 6px; font-weight: 600; }
         .form-control { width: 100%; padding: 11px 12px; border: none; background-color: var(--toss-light-grey); border-radius: 12px; font-size: 13px; color: var(--toss-black); outline: none; }
+        .dose-linear-wrap { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:14px; padding:12px 12px 10px; }
+        .dose-linear-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:11px; color:var(--toss-grey); }
+        .dose-linear-current { font-weight:800; color:var(--toss-black); font-size:13px; }
+        .dose-linear-input { width:100%; accent-color: var(--toss-blue); cursor:pointer; }
+        .dose-linear-ticks { display:flex; justify-content:space-between; margin-top:8px; font-size:10px; color:#64748B; gap:4px; }
+        .dose-linear-ticks span { transform: scale(0.92); transform-origin: center top; white-space: nowrap; }
+
+        .ie-score-card {
+            background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%);
+            border: 1px solid #E3EDF9;
+            border-radius: 20px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+        .ie-score-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .ie-score-label {
+            font-size: 12px;
+            font-weight: 800;
+            color: #334155;
+            letter-spacing: -0.2px;
+        }
+        .ie-score-info-btn {
+            border: 1px solid #CBD5E1;
+            background: #FFFFFF;
+            color: #334155;
+            border-radius: 999px;
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .ie-score-main {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            align-items: center;
+        }
+        .ie-score-value {
+            font-size: 30px;
+            font-weight: 900;
+            color: #0F172A;
+            line-height: 1;
+            letter-spacing: -0.8px;
+        }
+        .ie-score-unit {
+            font-size: 13px;
+            font-weight: 700;
+            color: #64748B;
+            margin-left: 4px;
+        }
+        .ie-score-grade {
+            border-radius: 999px;
+            padding: 7px 12px;
+            background: #ECFDF3;
+            color: #166534;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .ie-score-sub {
+            margin-top: 10px;
+            font-size: 11px;
+            color: #475569;
+            line-height: 1.55;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 11px;
+            padding: 8px 10px;
+        }
+        .ie-score-rank {
+            margin-top: 8px;
+            display: grid;
+            gap: 6px;
+        }
+        .ie-score-rank-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            line-height: 1.45;
+            color: #334155;
+        }
+        .ie-score-rank-pill {
+            border-radius: 999px;
+            padding: 4px 8px;
+            background: #EEF4FF;
+            color: #1D4ED8;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .ie-brief-card {
+            background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%);
+            border: 1px solid #E3EDF9;
+            border-radius: 20px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+        .ie-brief-lead {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .ie-brief-grid {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .ie-brief-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            font-size: 11px;
+            color: #334155;
+        }
+        .ie-brief-row span:first-child {
+            color: #64748B;
+        }
+        .ie-brief-chip {
+            border-radius: 999px;
+            padding: 4px 8px;
+            background: #EEF4FF;
+            color: #1D4ED8;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .ie-detail-toggle {
+            border: none;
+            background: #0F172A;
+            color: #FFFFFF;
+            width: 100%;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-bottom: 12px;
+        }
+        .analysis-details { display: none; }
+        .site-diagram-wrap {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 12px;
+        }
+        .site-zone-hint {
+            margin-top: 8px;
+            font-size: 11px;
+            color: #64748B;
+            line-height: 1.5;
+            text-align: center;
+        }
 
         .modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 100; display: none; justify-content: center; backdrop-filter: blur(2px); }
         .modal-window { background: white; width: 100%; border-radius: 26px 26px 0 0; padding: 24px 20px; max-height: 85%; overflow-y: auto; align-self: flex-end; }
@@ -688,138 +847,120 @@
         </div>
 
         <div id="analysisTab" class="tab-panel">
-            <div class="card premium-compare-card locked" id="premiumCompareCard" style="padding:14px 16px; background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%); border: 1px solid #E3EDF9;">
-                <div class="card-title" style="margin-bottom:10px;">
-                    <span class="section-title">프리미엄 변화 해석 리포트</span>
-                    <button id="premiumCompareLockBtn" class="premium-lock-btn" onclick="togglePremiumCompareCard()" title="프리미엄 리포트 잠금/해제">🔒</button>
+            <div class="ie-score-card">
+                <div class="ie-score-top">
+                    <span class="ie-score-label">인바디 IE Score</span>
+                    <button class="ie-score-info-btn" onclick="openIeScoreInfo()">IE Score란?</button>
                 </div>
-                <div class="premium-compare-subtitle">직전 인바디 측정값과 최신 측정값을 비교해 변화 방향을 보여줍니다.</div>
-                <div class="premium-summary-content">
-                    <div class="summary-grid">
-                        <div class="premium-metric-card">
-                            <div class="premium-metric-head">
-                                <span class="premium-metric-name">위상각(PhA)</span>
-                                <span class="premium-delta-badge premium-delta-up-good">+0.2°</span>
-                            </div>
-                            <div class="premium-values">
-                                <div class="premium-val-box"><span class="premium-val-label">직전</span><span class="premium-val-num">5.3°</span></div>
-                                <span class="premium-arrow">→</span>
-                                <div class="premium-val-box"><span class="premium-val-label">현재</span><span class="premium-val-num">5.5°</span></div>
-                            </div>
-                            <div class="premium-metric-note">위상각이 상승해 회복·영양 상태가 개선되는 흐름입니다. 보통 위상각이 낮아지면 세포 건강 저하/컨디션 저하 신호일 수 있어요. 단백질·수면·수분 섭취를 우선 점검해 올리는 것이 좋습니다.</div>
-                        </div>
-
-                        <div class="premium-metric-card">
-                            <div class="premium-metric-head">
-                                <span class="premium-metric-name">세포외수분비율(ECW/TBW)</span>
-                                <span class="premium-delta-badge premium-delta-up-warn">+0.003</span>
-                            </div>
-                            <div class="premium-values">
-                                <div class="premium-val-box"><span class="premium-val-label">직전</span><span class="premium-val-num">0.386</span></div>
-                                <span class="premium-arrow">→</span>
-                                <div class="premium-val-box"><span class="premium-val-label">현재</span><span class="premium-val-num">0.389</span></div>
-                            </div>
-                            <div class="premium-metric-note">수분 정체 경향이 약간 올라 수분·염분 밸런스 점검이 필요합니다.</div>
-                        </div>
-
-                        <div class="premium-metric-card">
-                            <div class="premium-metric-head">
-                                <span class="premium-metric-name">부위별 근육량(왼쪽 하지)</span>
-                                <span class="premium-delta-badge premium-delta-down">-0.4kg</span>
-                            </div>
-                            <div class="premium-values">
-                                <div class="premium-val-box"><span class="premium-val-label">직전</span><span class="premium-val-num">8.6kg</span></div>
-                                <span class="premium-arrow">→</span>
-                                <div class="premium-val-box"><span class="premium-val-label">현재</span><span class="premium-val-num">8.2kg</span></div>
-                            </div>
-                            <div class="premium-metric-note">특이사항: 왼쪽 하지 근육량 감소 폭이 상대적으로 큽니다. 좌우 밸런스 점검이 필요하며, 다음 측정에서 왼쪽 하지 회복 여부를 우선 확인해보세요.</div>
-                        </div>
+                <div class="ie-score-main">
+                    <div>
+                        <span class="ie-score-value" id="ieScoreValue">82</span>
+                        <span class="ie-score-unit">점</span>
                     </div>
+                    <span class="ie-score-grade" id="ieScoreGrade">등급 A</span>
                 </div>
-                <div class="premium-lock-overlay" id="premiumCompareOverlay">
-                    <div class="premium-lock-panel">
-                        <div class="desc"><b>2회 이상 측정해야 열 수 있는 프리미엄 기능입니다.</b><br>직전 측정과 최신 측정을 비교해 위상각, 세포외수분비, 부위별 근육량의 증감 변화를 해석해줍니다.</div>
-                        <button class="premium-open-btn" onclick="togglePremiumCompareCard()">🔓 미리 열어보기</button>
+                <div class="ie-score-sub">IE Score는 InBody Efficiency Score의 약자로, 건강하고 효율적인 감량 흐름인지 보여주는 메인 지표입니다.</div>
+                <div class="ie-score-rank">
+                    <div class="ie-score-rank-row">
+                        <span>동일군 1,000명 기준 예시</span>
+                        <span class="ie-score-rank-pill" id="ieScoreRankPill">상위 18%</span>
+                    </div>
+                    <div class="ie-score-rank-row">
+                        <span>예상 순위</span>
+                        <span id="ieScoreRankText">약 181등 / 1,000명</span>
                     </div>
                 </div>
             </div>
-            <div class="card analysis-section" id="analysisSectionComposition" style="background:#FCFDFF; border:1px solid #E8EEF7;">
-                <div class="card-title">
-                    <span class="section-title">체성분 목표</span>
-                    <button onclick="openSpecModal()" style="background:none; border:none; color:var(--toss-blue); font-size:12px; font-weight:600; cursor:pointer;">목표 수정 ⚙️</button>
+            <div class="ie-brief-card">
+                <div class="card-title" style="margin-bottom:8px;">
+                    <span class="section-title">IE Score가 말하는 것</span>
                 </div>
-                <div style="font-size: 11px; color: var(--toss-grey); margin-bottom: 8px;">신장 <span id="lblHeight">164</span> cm 기준 체성분 목표 설정</div>
-                
-                <table class="body-comp-table">
-                    <thead>
-                        <tr><th>지표</th><th>시작 스펙</th><th>현재 스펙</th><th>최종 목표</th><th style="color:var(--toss-blue);">남은 목표</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>체중</td><td>71.7 kg</td><td>68.5 kg</td><td id="lblWeight">55.0 kg</td><td class="journey-item-active-bg" id="remWeight">-13.5 kg</td></tr>
-                        <tr><td>골격근량</td><td>23.9 kg</td><td>24.2 kg</td><td id="lblMuscle">25.5 kg</td><td class="journey-item-active-bg" id="remMuscle">+1.3 kg</td></tr>
-                        <tr><td>체지방률</td><td>31.0 %</td><td>28.5 %</td><td id="lblFat">22.0 %</td><td class="journey-item-active-bg" id="remFat">-6.5 %</td></tr>
-                    </tbody>
-                </table>
-
-            </div>
-
-            <div class="card analysis-section" id="analysisSectionMuscle" style="border: 1px solid #E3EDF9;">
-                <div class="card-title">
-                    <span class="section-title">오늘의 가이드</span>
-                    <span id="proteinStatusBadge" class="feed-site-badge" style="background:#E8F3FF; color:var(--toss-blue);">점검 필요</span>
-                </div>
-
-                <div class="guide-block">
-                    <div class="guide-block-title">오늘 단백질 현황</div>
-                    <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:10px;">
-                        <div class="metric-chip"><span class="label">목표</span><span class="value" id="dailyProteinTarget">95g</span></div>
-                        <div class="metric-chip"><span class="label">현재</span><span class="value" id="todayProteinIntakeTxt">62g</span></div>
-                        <div class="metric-chip"><span class="label">남은량</span><span class="value" id="proteinRemainTxt">33g</span></div>
-                    </div>
-                    <div class="form-group" style="margin-bottom:0;">
-                        <label>오늘 프로틴 섭취량 (g)</label>
-                        <input type="number" class="form-control" id="inputProteinIntake" value="62" placeholder="예: 90">
-                    </div>
-                </div>
-                <div class="today-side-preview">
-                    <div class="guide-block-title">오늘 선택한 부작용</div>
-                    <div id="todaySideEffectPreview" class="side-effect-chip-wrap"></div>
-                </div>
-                <button class="add-record-btn" style="padding:12px; font-size:14px; margin-bottom:10px;" onclick="updateProteinCoach()">오늘의 가이드 보기</button>
-
-                <div class="ad-slot">
-                    <div style="font-size:11px; font-weight:700; color:var(--toss-grey);">외부 업체 연동 영역 (준비중)</div>
-                    <div style="font-size:11px; color:var(--toss-sub-grey); margin-top:6px;">단백질/운동 추천 제휴 배너는 이 영역에 연결될 예정입니다.</div>
+                <div class="ie-brief-lead">82점은 건강하고 효율적인 감량 흐름에 들어와 있다는 뜻입니다. 지금은 <b>지방은 줄고, 근육은 지키는지</b>만 먼저 보면 됩니다.</div>
+                <div class="ie-brief-grid">
+                    <div class="ie-brief-row"><span>현재 상태</span><span class="ie-brief-chip">좋은 흐름</span></div>
+                    <div class="ie-brief-row"><span>비교 포인트</span><span class="ie-brief-chip">근육 보전</span></div>
+                    <div class="ie-brief-row"><span>오늘 우선순위</span><span class="ie-brief-chip">단백질·수분</span></div>
                 </div>
             </div>
+            <button class="ie-detail-toggle" id="analysisDetailToggleBtn" onclick="toggleAnalysisDetails()">상세 지표 보기</button>
 
-            <div class="card analysis-section" id="analysisSectionDose" style="border: 1px solid #E3EDF9;">
-                <div class="feature-mask-wrap">
-                <div class="card-title"><span class="section-title" style="color: var(--toss-blue);">약물 농도 예상 추이</span></div>
-                <div class="concentration-curve-area">
-                    <svg style="width:100%; height:100%;" viewBox="0 0 340 140" preserveAspectRatio="none">
-                        <line x1="34" y1="20" x2="34" y2="116" stroke="#CBD5E1" stroke-width="1.2"/>
-                        <line x1="34" y1="116" x2="324" y2="116" stroke="#CBD5E1" stroke-width="1.2"/>
-                        <line x1="34" y1="36" x2="324" y2="36" stroke="#E8EEF7" stroke-width="1"/>
-                        <line x1="34" y1="76" x2="324" y2="76" stroke="#E8EEF7" stroke-width="1"/>
-                        <line x1="224" y1="20" x2="224" y2="116" stroke="#BFDBFE" stroke-width="1" stroke-dasharray="3,3"/>
+            <div class="analysis-details" id="analysisDetails">
+                <div class="card analysis-section" id="analysisSectionComposition" style="background:#FCFDFF; border:1px solid #E8EEF7;">
+                    <div class="card-title">
+                        <span class="section-title">체성분 밸런스</span>
+                        <button onclick="openSpecModal()" style="background:none; border:none; color:var(--toss-blue); font-size:12px; font-weight:600; cursor:pointer;">목표 수정 ⚙️</button>
+                    </div>
+                    <div style="font-size: 11px; color: var(--toss-grey); margin-bottom: 8px;">신장 <span id="lblHeight">164</span> cm 맞춤 체성분 밸런스 가이드</div>
+                    
+                    <table class="body-comp-table">
+                        <thead>
+                            <tr><th>지표</th><th>시작 스펙</th><th>현재 스펙</th><th>최종 목표</th><th style="color:var(--toss-blue);">남은 목표</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>체중</td><td>71.7 kg</td><td>68.5 kg</td><td id="lblWeight">55.0 kg</td><td class="journey-item-active-bg" id="remWeight">-13.5 kg</td></tr>
+                            <tr><td>골격근량</td><td>23.9 kg</td><td>24.2 kg</td><td id="lblMuscle">25.5 kg</td><td class="journey-item-active-bg" id="remMuscle">+1.3 kg</td></tr>
+                            <tr><td>체지방률</td><td>31.0 %</td><td>28.5 %</td><td id="lblFat">22.0 %</td><td class="journey-item-active-bg" id="remFat">-6.5 %</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                        <path d="M 34 30 C 88 40, 150 64, 210 86 C 250 98, 282 104, 324 108 L 324 116 L 34 116 Z" fill="rgba(49,130,246,0.14)"/>
-                        <path d="M 34 30 C 88 40, 150 64, 210 86 C 250 98, 282 104, 324 108" fill="none" stroke="var(--toss-blue)" stroke-width="3.2" stroke-linecap="round"/>
-                        <circle cx="224" cy="89" r="4.2" fill="#FFFFFF" stroke="var(--toss-blue)" stroke-width="2.2"/>
-                    </svg>
-                    <span style="position:absolute; top:16px; left:178px; font-size:12px; font-weight:700; color:var(--toss-blue); background:#EEF4FF; border:1px solid #BFDBFE; border-radius:999px; padding:3px 8px;">체내 잔류량 약 62%</span>
-                    <span style="position:absolute; left:8px; top:18px; font-size:10px; color:var(--toss-sub-grey);">100%</span>
-                    <span style="position:absolute; left:8px; top:72px; font-size:10px; color:var(--toss-sub-grey);">50%</span>
-                    <span style="position:absolute; left:8px; top:108px; font-size:10px; color:var(--toss-sub-grey);">0%</span>
-                    <span style="position:absolute; left:38px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">투약 직후</span>
-                    <span style="position:absolute; left:136px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">2일</span>
-                    <span style="position:absolute; left:218px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">4일</span>
-                    <span style="position:absolute; right:10px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">7일</span>
-                    <div class="feature-mask">
-                        <div class="feature-mask-text">나중에 추가될 기능입니다</div>
+                <div class="card analysis-section" id="analysisSectionMuscle" style="border: 1px solid #E3EDF9;">
+                    <div class="card-title">
+                        <span class="section-title">오늘의 가이드</span>
+                        <span id="proteinStatusBadge" class="feed-site-badge" style="background:#E8F3FF; color:var(--toss-blue);">점검 필요</span>
+                    </div>
+
+                    <div class="guide-block">
+                        <div class="guide-block-title">오늘 단백질 현황</div>
+                        <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+                            <div class="metric-chip"><span class="label">목표</span><span class="value" id="dailyProteinTarget">95g</span></div>
+                            <div class="metric-chip"><span class="label">현재</span><span class="value" id="todayProteinIntakeTxt">62g</span></div>
+                            <div class="metric-chip"><span class="label">남은량</span><span class="value" id="proteinRemainTxt">33g</span></div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label>오늘 프로틴 섭취량 (g)</label>
+                            <input type="number" class="form-control" id="inputProteinIntake" value="62" placeholder="예: 90">
+                        </div>
+                    </div>
+                    <div class="today-side-preview">
+                        <div class="guide-block-title">오늘 선택한 부작용</div>
+                        <div id="todaySideEffectPreview" class="side-effect-chip-wrap"></div>
+                    </div>
+                    <button class="add-record-btn" style="padding:12px; font-size:14px; margin-bottom:10px;" onclick="updateProteinCoach()">오늘의 가이드 보기</button>
+                    <div class="ad-slot">
+                        <div style="font-size:11px; font-weight:700; color:var(--toss-grey);">외부 업체 연동 영역 (준비중)</div>
+                        <div style="font-size:11px; color:var(--toss-sub-grey); margin-top:6px;">단백질/운동 추천 제휴 배너는 이 영역에 연결될 예정입니다.</div>
                     </div>
                 </div>
+
+                <div class="card analysis-section" id="analysisSectionDose" style="border: 1px solid #E3EDF9;">
+                    <div class="feature-mask-wrap">
+                    <div class="card-title"><span class="section-title" style="color: var(--toss-blue);">약물 농도 예상 추이</span></div>
+                    <div class="concentration-curve-area">
+                        <svg style="width:100%; height:100%;" viewBox="0 0 340 140" preserveAspectRatio="none">
+                            <line x1="34" y1="20" x2="34" y2="116" stroke="#CBD5E1" stroke-width="1.2"/>
+                            <line x1="34" y1="116" x2="324" y2="116" stroke="#CBD5E1" stroke-width="1.2"/>
+                            <line x1="34" y1="36" x2="324" y2="36" stroke="#E8EEF7" stroke-width="1"/>
+                            <line x1="34" y1="76" x2="324" y2="76" stroke="#E8EEF7" stroke-width="1"/>
+                            <line x1="224" y1="20" x2="224" y2="116" stroke="#BFDBFE" stroke-width="1" stroke-dasharray="3,3"/>
+
+                            <path d="M 34 30 C 88 40, 150 64, 210 86 C 250 98, 282 104, 324 108 L 324 116 L 34 116 Z" fill="rgba(49,130,246,0.14)"/>
+                            <path d="M 34 30 C 88 40, 150 64, 210 86 C 250 98, 282 104, 324 108" fill="none" stroke="var(--toss-blue)" stroke-width="3.2" stroke-linecap="round"/>
+                            <circle cx="224" cy="89" r="4.2" fill="#FFFFFF" stroke="var(--toss-blue)" stroke-width="2.2"/>
+                        </svg>
+                        <span style="position:absolute; top:16px; left:178px; font-size:12px; font-weight:700; color:var(--toss-blue); background:#EEF4FF; border:1px solid #BFDBFE; border-radius:999px; padding:3px 8px;">체내 잔류량 약 62%</span>
+                        <span style="position:absolute; left:8px; top:18px; font-size:10px; color:var(--toss-sub-grey);">100%</span>
+                        <span style="position:absolute; left:8px; top:72px; font-size:10px; color:var(--toss-sub-grey);">50%</span>
+                        <span style="position:absolute; left:8px; top:108px; font-size:10px; color:var(--toss-sub-grey);">0%</span>
+                        <span style="position:absolute; left:38px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">투약 직후</span>
+                        <span style="position:absolute; left:136px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">2일</span>
+                        <span style="position:absolute; left:218px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">4일</span>
+                        <span style="position:absolute; right:10px; bottom:6px; font-size:10px; color:var(--toss-sub-grey);">7일</span>
+                        <div class="feature-mask">
+                            <div class="feature-mask-text">나중에 추가될 기능입니다</div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
             <div class="card" style="padding:16px;">
@@ -881,23 +1022,22 @@
         
         <div class="form-group">
             <label>투약 용량<span class="required-mark" style="color:var(--apple-red); margin-left:2px;">*</span></label>
-            <select class="form-control" id="inputDose">
-                <option value="">선택해주세요</option>
-                <option value="0.25">0.25</option>
-                <option value="0.5">0.5</option>
-                <option value="1.0">1.0</option>
-                <option value="1.7">1.7</option>
-                <option value="2.4">2.4</option>
-                <option value="2.5">2.5</option>
-                <option value="5">5</option>
-                <option value="7.5">7.5</option>
-                <option value="10">10</option>
-            </select>
+            <div class="dose-linear-wrap">
+                <div class="dose-linear-top">
+                    <span>0.25 mg</span>
+                    <span class="dose-linear-current" id="doseCurrentLabel">0.25 mg</span>
+                    <span>10 mg</span>
+                </div>
+                <input type="range" class="dose-linear-input" id="inputDose" min="0.25" max="10" step="0.05" value="0.25" oninput="updateDoseSliderLabel()">
+                <div class="dose-linear-ticks">
+                    <span>0.25</span><span>2.5</span><span>5</span><span>7.5</span><span>10</span>
+                </div>
+            </div>
         </div>
         
         <div class="form-group">
             <label>주사 부위<span class="required-mark" style="color:var(--apple-red); margin-left:2px;">*</span></label>
-            <select class="form-control" id="inputSite">
+            <select class="form-control" id="inputSite" onchange="selectInjectionSite(this.value)">
                 <option value="">선택해주세요</option>
                 <optgroup label="복부">
                     <option value="복부 - 왼쪽">복부 - 왼쪽</option>
@@ -961,6 +1101,23 @@
         <div id="metricInfoTitle" style="font-size: 17px; font-weight: 800; color: var(--toss-black); margin-bottom: 10px;"></div>
         <div id="metricInfoBody" style="font-size: 12px; color: var(--toss-grey); line-height: 1.7; background:#F8FAFC; padding:12px; border-radius:12px;"></div>
         <button class="add-record-btn" style="margin-top:14px; margin-bottom:0;" onclick="closeMetricInfo()">확인</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="ieScoreInfoModal" style="align-items: center; padding: 0 20px; display:none;">
+    <div class="modal-window" style="border-radius: 22px; align-self: center; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
+        <div style="font-size: 17px; font-weight: 800; color: var(--toss-black); margin-bottom: 10px;">IE Score란?</div>
+        <div style="font-size: 12px; color: var(--toss-grey); line-height: 1.7; background:#F8FAFC; padding:12px; border-radius:12px;">
+            IE Score는 인바디 변화를 한눈에 보기 위한 통합 지표입니다.<br><br>
+            체지방 변화, 골격근량 보전, 위상각(PhA) 추세를 함께 반영해 현재 감량의 질을 점수와 등급으로 보여줍니다.<br><br>
+            일반적으로 점수가 높을수록 지방 중심 감량과 컨디션 유지가 균형 있게 진행되고 있다는 의미입니다.
+        </div>
+        <div style="font-size: 12px; color: var(--toss-grey); line-height: 1.7; background:#EEF4FF; padding:12px; border-radius:12px; margin-top:10px;">
+            <b>내 위치는?</b><br>
+            이 화면에서는 같은 관리군 1,000명을 기준으로 <b>상위 몇 %</b>와 <b>예상 순위</b>를 함께 보여줍니다.<br>
+            실제 사용자 데이터가 연결되면 이 자리에 실측 비교값으로 바뀝니다.
+        </div>
+        <button class="add-record-btn" style="margin-top:14px; margin-bottom:0;" onclick="closeIeScoreInfo()">확인</button>
     </div>
 </div>
 
@@ -1170,6 +1327,36 @@
 
     function openSpecModal() { document.getElementById('specModal').style.display = 'flex'; }
     function closeSpecModal() { document.getElementById('specModal').style.display = 'none'; }
+
+    function getSelectedDoseValue() {
+        const slider = document.getElementById('inputDose');
+        if (!slider) return "";
+        const value = parseFloat(slider.value);
+        if (!Number.isFinite(value)) return "";
+        return value.toFixed(value < 1 ? 2 : 1).replace(/\.0$/, "");
+    }
+    function setDoseSliderByValue(dose) {
+        const slider = document.getElementById('inputDose');
+        if (!slider) return;
+        const parsed = parseFloat(dose);
+        if (Number.isFinite(parsed)) slider.value = String(parsed);
+        updateDoseSliderLabel();
+    }
+    function selectInjectionSite(site) {
+        const select = document.getElementById('inputSite');
+        if (select) select.value = site || "";
+    }
+    function updateDoseSliderLabel() {
+        const slider = document.getElementById('inputDose');
+        const label = document.getElementById('doseCurrentLabel');
+        if (!slider || !label) return;
+        const value = parseFloat(slider.value);
+        if (!Number.isFinite(value)) {
+            label.innerText = "0.25 mg";
+            return;
+        }
+        label.innerText = (value < 1 ? value.toFixed(2) : value.toFixed(1)).replace(/\.0$/, "") + " mg";
+    }
     
     function saveSpecData() {
         let height = parseFloat(document.getElementById('editHeight').value) || 164;
@@ -1199,10 +1386,9 @@
         if (last) {
             const medEl = document.getElementById('inputMed');
             const doseEl = document.getElementById('inputDose');
-            const siteEl = document.getElementById('inputSite');
             if (medEl && last.med && Array.from(medEl.options).some(o => o.value === last.med)) medEl.value = last.med;
-            if (doseEl && last.dose && Array.from(doseEl.options).some(o => o.value === last.dose)) doseEl.value = last.dose;
-            if (siteEl && last.site && Array.from(siteEl.options).some(o => o.value === last.site)) siteEl.value = last.site;
+            if (doseEl && last.dose) setDoseSliderByValue(last.dose);
+            if (last.site) selectInjectionSite(last.site);
         }
         document.getElementById('recordModal').style.display = 'flex';
     }
@@ -1402,6 +1588,30 @@
     function closeRewardInfo() { document.getElementById('rewardInfoModal').style.display = 'none'; }
     function openMetricSetupModal() { document.getElementById('metricSetupModal').style.display = 'flex'; }
     function closeMetricSetupModal() { document.getElementById('metricSetupModal').style.display = 'none'; }
+    function openIeScoreInfo() { document.getElementById('ieScoreInfoModal').style.display = 'flex'; }
+    function closeIeScoreInfo() { document.getElementById('ieScoreInfoModal').style.display = 'none'; }
+    function updateIeScoreComparison(score) {
+        const rankPill = document.getElementById('ieScoreRankPill');
+        const rankText = document.getElementById('ieScoreRankText');
+        const parsed = Number(score);
+        if (!Number.isFinite(parsed)) return;
+
+        const cohortSize = 1000;
+        const normalized = Math.max(0, Math.min(100, parsed));
+        const topPercent = Math.max(1, Math.min(99, Math.round(100 - normalized)));
+        const rank = Math.max(1, Math.min(cohortSize, Math.round((100 - normalized) / 100 * cohortSize) + 1));
+
+        if (rankPill) rankPill.innerText = `상위 ${topPercent}%`;
+        if (rankText) rankText.innerText = `약 ${rank}등 / ${cohortSize}명`;
+    }
+    function toggleAnalysisDetails() {
+        const details = document.getElementById('analysisDetails');
+        const btn = document.getElementById('analysisDetailToggleBtn');
+        if (!details || !btn) return;
+        const show = details.style.display === 'none' || !details.style.display;
+        details.style.display = show ? 'grid' : 'none';
+        btn.textContent = show ? '상세 지표 숨기기' : '상세 지표 보기';
+    }
     function closeWeeklyReminder() { document.getElementById('weeklyReminderModal').style.display = 'none'; }
     function openPhaUnavailableInfo() { document.getElementById('phaUnavailableModal').style.display = 'flex'; }
     function closePhaUnavailableInfo() { document.getElementById('phaUnavailableModal').style.display = 'none'; }
@@ -1741,7 +1951,7 @@
 
     function saveRecord() {
         let med = document.getElementById('inputMed').value;
-        let dose = document.getElementById('inputDose').value;
+        let dose = getSelectedDoseValue();
         let site = document.getElementById('inputSite').value;
         
         if(!med) { alert("⚠️ 비만약 종류를 선택해주세요."); return; }
@@ -1825,6 +2035,8 @@
             switchTab('analysis');
         }
         initMetricSetupFromStorage();
+        setDoseSliderByValue(0.25);
+        updateIeScoreComparison(document.getElementById('ieScoreValue') ? document.getElementById('ieScoreValue').innerText : 82);
 
         const firstSetupDone = localStorage.getItem('metricSetupDone');
         if (!firstSetupDone) {
